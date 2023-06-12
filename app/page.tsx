@@ -11,7 +11,7 @@ import {
 export default function IndexPage() {
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
+      
       <Table>
   <TableHeader>
     <TableRow>
@@ -22,8 +22,8 @@ export default function IndexPage() {
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell className="font-medium">08:30</TableCell>
-      <TableCell colSpan={3} className="text-center">Kaffe og frukt</TableCell>
+      <TableCell className="font-medium bg-muted">08:30</TableCell>
+      <TableCell colSpan={3} className="text-center bg-muted">Kaffe og frukt</TableCell>
     </TableRow>
   </TableBody>
   <TableBody>
@@ -35,13 +35,14 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">09:15 - 10:00</TableCell>
-      <TableCell colSpan={3} className="text-center">Terje Heen, Refaktorering av kode - exposal</TableCell>
+      <TableCell colSpan={2} className="text-center"><img className="h-auto max-w-xs rounded-full" src="https://event.dnd.no/dnd/wp-content/uploads/sites/78/2020/10/SW-foredragsholdere-3.jpg"></img></TableCell>
+      <TableCell colSpan={2} className="text-center">Terje Heen, Refaktorering av kode - exposal</TableCell>
     </TableRow>
   </TableBody>
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">10:00 - 11:00</TableCell>
-      <TableCell>Stine Midtlund</TableCell>
+      <TableCell><img className="h-auto max-w-xs rounded-full" src="https://media.licdn.com/dms/image/C5603AQEESDVfT5tcyg/profile-displayphoto-shrink_800_800/0/1552135783900?e=2147483647&v=beta&t=WnXBm0flXOj6ZM8VPZDnUM4YgjJzxizROzdTx3VOAxA"></img></TableCell>
       <TableCell>Hva skal til for å bli et høyt presterende team?</TableCell>
       <TableCell colSpan={2} className="text-right">Expoområdet</TableCell>
     </TableRow>
@@ -49,15 +50,15 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">10:00 - 11:00</TableCell>
-      <TableCell>Morten Slaatten Berg</TableCell>
+      <TableCell>Morten SlaattenBerg</TableCell>
       <TableCell>API First - Generer kode fra dokumentasjon!</TableCell>
       <TableCell colSpan={2} className="text-right">Exposal</TableCell>
     </TableRow>
   </TableBody>
   <TableBody>
     <TableRow>
-      <TableCell className="font-medium">11:00 - 12:00</TableCell>
-      <TableCell colSpan={3} className="text-center">Lunsj</TableCell>
+      <TableCell className="font-medium bg-muted">11:00 - 12:00</TableCell>
+      <TableCell colSpan={3} className="text-center bg-muted">Lunsj</TableCell>
     </TableRow>
   </TableBody>
   <TableBody>
@@ -99,7 +100,7 @@ export default function IndexPage() {
     </TableRow>
   </TableBody>
 </Table>
-      </div>
+      
     </section>
   )
 }
