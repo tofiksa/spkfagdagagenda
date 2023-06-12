@@ -49,7 +49,7 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">10:00 - 11:00</TableCell>
-      <TableCell>Morten Slaaten-Berg</TableCell>
+      <TableCell>Morten Slaatten Berg</TableCell>
       <TableCell>API First - Generer kode fra dokumentasjon!</TableCell>
       <TableCell colSpan={2} className="text-right">Exposal</TableCell>
     </TableRow>
@@ -70,7 +70,7 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">12:00 - 12:45</TableCell>
-      <TableCell colSpan={2}>TDD - Audun</TableCell>
+      <TableCell colSpan={2}>Testdrevet utvikling - Audun Hvenekilde</TableCell>
       <TableCell colSpan={2} className="text-right">Exposal</TableCell>
     </TableRow>
   </TableBody>
@@ -82,8 +82,14 @@ export default function IndexPage() {
   </TableBody>
   <TableBody>
     <TableRow>
-      <TableCell className="font-medium">14:00 - 15:00</TableCell>
-      <TableCell colSpan={3} className="text-center">Design system v/Alejandro + Eirik Eide (exposal)</TableCell>
+      <TableCell className="font-medium">14:00 - 14:15</TableCell>
+      <TableCell colSpan={3} className="text-center">Designsystemkultur - Alejandro Ortega(exposal)</TableCell>
+    </TableRow>
+  </TableBody>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-medium">14:15 - 15:00</TableCell>
+      <TableCell colSpan={3} className="text-center">IT Arkeologi - Eirik Eide (exposal)</TableCell>
     </TableRow>
   </TableBody>
   <TableBody>
