@@ -3,12 +3,12 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "preview": "next build && next start",
+    "dev": "node_modules/next/dist/bin/next dev",
+    "build": "node_modules/next/dist/bin/next build",
+    "start": "node_modules/next/dist/bin/next start",
+    "lint": "node_modules/next/dist/bin/next lint",
+    "lint:fix": "node_modules/next/dist/bin/next lint --fix",
+    "preview": "node_modules/next/dist/bin/next build && node_modules/next/dist/bin/next start",
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
