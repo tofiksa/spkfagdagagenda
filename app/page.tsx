@@ -14,7 +14,7 @@ export default function IndexPage() {
     
       
   <Table>
-  <TableHeader>
+  {/* <TableHeader>
     <TableRow>
       <TableHead>Klokke</TableHead>
       <TableHead>Taler</TableHead>
@@ -62,7 +62,7 @@ export default function IndexPage() {
       <TableCell colSpan={2} className="text-right font-bold">Exposal</TableCell>
     </TableRow>
   </TableBody>
-  <TableBody>
+ */}  <TableBody>
     <TableRow>
       <TableCell className="font-medium bg-muted">11:00 - 12:00</TableCell>
       <TableCell colSpan={4} className="text-center bg-muted font-extrabold">Lunsj</TableCell>
@@ -116,10 +116,22 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium bg-muted">15:15 - 16:30</TableCell>
-      <TableCell colSpan={4} className="text-center bg-muted font-extrabold">Gruppeaktivitet i expoområdet</TableCell>
+      <TableCell colSpan={1} className="text-center bg-muted font-extrabold">Gruppeaktivitet i expoområdet</TableCell>
+      <TableCell colSpan={1} className="text-left bg-muted">
+      Stop motion-animasjon er en filmteknikk som involverer å skape bevegelse ved å flytte og fotografere fysiske objekter i små trinn. Det er en form for animasjon der bilder tas i raske sekvenser, og hver gang et bilde blir tatt, flyttes objektene eller figurene forsiktig for å gi illusjonen av bevegelse når bildene vises i rask rekkefølge.
+Metoden involverer vanligvis å bruke figurer, leker, dukker eller andre fysiske objekter som er formet for hånd, og deretter flytte dem bittelitt etter hver bildeopptak for å skape en jevn animasjon. Dette gjentas gjentatte ganger, og bildene blir deretter satt sammen til en sekvens som gir liv til objektene på skjermen.
+<br /><br />
+Stop motion-animasjon kan være tidkrevende, da det tar tid å flytte objektene i små trinn og ta bilder av hver bevegelse. Det krever tålmodighet og nøyaktighet for å oppnå ønsket effekt. Likevel har det en unik sjarm og estetikk, og det brukes i ulike typer filmer, inkludert kortfilmer, reklame, musikkvideoer og til og med i spillefilmer.
+Denne teknikken gir filmskapere muligheten til å skape magiske verdener og fascinerende historier ved hjelp av en kombinasjon av håndverk, kreativitet og teknologi.
+<br /><br />
+Link til opplasting: <a href="https://driveuploader.com/upload/NExNBngHmW/">Driveuploader</a>
+<br /><br />
+<img width={100} height={100} className="h-auto max-w-xs" src="qrcode.png"></img>
+      </TableCell>
+      <TableCell colSpan={2} className="text-right font-bold">Expoområdet</TableCell>
     </TableRow>
   </TableBody>
-</Table>
+  </Table>
       
   )
 }
