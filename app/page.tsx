@@ -40,7 +40,7 @@ export default function IndexPage() {
       <TableCell className="text-left"><img width={100} height={100} className="h-auto max-w-xs rounded-full" src="https://event.dnd.no/dnd/wp-content/uploads/sites/78/2020/10/SW-foredragsholdere-3.jpg"></img>
       <figcaption className="mt-2 text-sm text-left">Terje Heen</figcaption>
       </TableCell>
-      <TableCell className="text-left">Refaktorering av kode</TableCell>
+      <TableCell className="text-left">Endringsdyktige kode</TableCell>
       <TableCell colSpan={2} className="text-right font-bold">Exposal</TableCell>
     </TableRow>
   </TableBody>
