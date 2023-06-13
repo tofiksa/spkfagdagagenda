@@ -57,7 +57,7 @@ export default function IndexPage() {
     <TableRow>
       <TableCell className="font-medium">10:00 - 11:00</TableCell>
       <TableCell><img width={100} height={100} className="h-auto max-w-xs rounded-full" src="https://pbs.twimg.com/profile_images/1488611250/iterate-square-350x349_400x400.png"></img>
-      <figcaption className="mt-2 text-sm text-left">Morten SlaattenBerg</figcaption></TableCell>
+      <figcaption className="mt-2 text-sm text-left">Morten Slaatten Berg</figcaption></TableCell>
       <TableCell>API First</TableCell>
       <TableCell colSpan={2} className="text-right font-bold">Exposal</TableCell>
     </TableRow>
