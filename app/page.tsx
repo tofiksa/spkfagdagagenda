@@ -7,6 +7,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import Image from "next/image";
+import Terje from "../images/TerjeHeen.jpg";
 
 export default function IndexPage() {
 
@@ -14,7 +16,7 @@ export default function IndexPage() {
     
       
   <Table>
-  {/* <TableHeader>
+  <TableHeader>
     <TableRow>
       <TableHead>Klokke</TableHead>
       <TableHead>Taler</TableHead>
@@ -37,7 +39,15 @@ export default function IndexPage() {
   <TableBody>
     <TableRow>
       <TableCell className="font-medium">09:15 - 10:00</TableCell>
-      <TableCell className="text-left"><img width={100} height={100} className="h-auto max-w-xs rounded-full" src="https://event.dnd.no/dnd/wp-content/uploads/sites/78/2020/10/SW-foredragsholdere-3.jpg"></img>
+      <TableCell className="text-left">
+        <Image 
+        alt="bilde av Heen" 
+        src={Terje}
+        className="h-auto w-auto max-w-xs rounded-full" 
+        quality={100}
+        placeholder="blur"
+        sizes="100vw"
+        />
       <figcaption className="mt-2 text-sm text-left">Terje Heen</figcaption>
       </TableCell>
       <TableCell className="text-left">Endringsdyktige kode</TableCell>
@@ -62,7 +72,7 @@ export default function IndexPage() {
       <TableCell colSpan={2} className="text-right font-bold">Exposal</TableCell>
     </TableRow>
   </TableBody>
- */}  <TableBody>
+   <TableBody>
     <TableRow>
       <TableCell className="font-medium bg-muted">11:00 - 12:00</TableCell>
       <TableCell colSpan={4} className="text-center bg-muted font-extrabold">Lunsj</TableCell>
