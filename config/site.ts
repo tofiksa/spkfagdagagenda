@@ -9,5 +9,6 @@ export const siteConfig = {
       title: "Filmene fra stopmotion",
       href: "/stopmotion",
     },
+    
   ],
 }

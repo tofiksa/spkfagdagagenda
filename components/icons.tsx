@@ -4,6 +4,7 @@ import {
   SunMedium,
   Twitter,
   type Icon as LucideIcon,
+  Loader2,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -18,6 +19,7 @@ export const Icons = {
     <img src={data} height={'50'} width={'100'}></img>
     
   ),
+  spinner: Loader2,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
