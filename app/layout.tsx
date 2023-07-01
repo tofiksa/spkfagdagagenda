@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "https://www.spk.no/favicon.ico?v=1",
+    icon: "/favicon-16x16.png",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex-1">{children}</div>
+              <div className="min-h-screen flex-col">{children}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>
