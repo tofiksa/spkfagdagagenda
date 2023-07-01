@@ -1,7 +1,11 @@
+import { SpeakersListContainer } from "@/components/speakers-list-container";
+
   
   export default function IndexPage() {
   
 
-  return <p>Post: hello world</p>
+  return (
+    <SpeakersListContainer />
+  )
   }
   
