@@ -10,8 +10,7 @@ import Alejandro from "../images/alejandro.jpg"
 
 export function SpeakersListContainer() {
 
-    return (
-        <div className="container">
+    return (<>
             <div className="flex items-baseline justify-between p-2">
                 <div className="font-medium text-muted-foreground">
                     Klokke
@@ -250,6 +249,6 @@ export function SpeakersListContainer() {
                 Exposal
                 </div>
             </div>
-        </div>
+            </>
     )
 }

@@ -6,6 +6,7 @@ import {
   type Icon as LucideIcon,
   Loader2,
 } from "lucide-react"
+import Image from "next/image";
 
 export type Icon = LucideIcon
 
@@ -16,7 +17,7 @@ export const Icons = {
   moon: Moon,
   twitter: Twitter,
   logo: (props: LucideProps) => (
-    <img src={data} height={'50'} width={'100'}></img>
+    <Image src={data} height={'50'} width={'100'} alt="twitter logo" />
     
   ),
   spinner: Loader2,

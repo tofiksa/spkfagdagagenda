@@ -1,10 +1,4 @@
 
-  
-  export default function IndexPage() {
-  
-
-  return (
-    <p>Stopmotion</p>
-  )
-  }
-  
+export default function IndexPage() {
+  return <p>Stopmotion</p>
+}
