@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { NextAuthProvider } from "@/lib/nextauthprovider"
+import AuthProvider from "./context/AuthProvider"
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <NextAuthProvider><div className="min-h-screen flex-col">{children}</div></NextAuthProvider>
+              <AuthProvider><div className="min-h-screen flex-col">{children}</div></AuthProvider>
             </div>
             <TailwindIndicator />
           </ThemeProvider>
