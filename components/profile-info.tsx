@@ -37,7 +37,7 @@ export const ProfileInfo = () => {
                                     <DropdownMenuItem>Billing</DropdownMenuItem>
                                     <DropdownMenuItem><Link href="/dashboard" className="items-left flex space-x-2">Dashboard</Link>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem><button onClick={() => signOut({ callbackUrl: 'http://localhost:3000/' })}>Sign out</button></DropdownMenuItem>
+                                    <DropdownMenuItem><button onClick={() => signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}` })}>Sign out</button></DropdownMenuItem>
                                 </DropdownMenuContent>
                                 </DropdownMenu>
                         </div>
