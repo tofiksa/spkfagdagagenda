@@ -33,11 +33,9 @@ export const ProfileInfo = () => {
                                 <DropdownMenuContent>
                                     <DropdownMenuLabel>{session?.user?.name}</DropdownMenuLabel>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                                    <DropdownMenuItem>Billing</DropdownMenuItem>
                                     <DropdownMenuItem><Link href="/dashboard" className="items-left flex space-x-2">Dashboard</Link>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem><button onClick={() => signOut({ callbackUrl: "/" })}>Sign out</button></DropdownMenuItem>
+                                    <DropdownMenuItem><button onClick={() => signOut({ callbackUrl: "/" })}>Logg ut</button></DropdownMenuItem>
                                 </DropdownMenuContent>
                                 </DropdownMenu>
                         </div>
