@@ -47,7 +47,7 @@ export const ProfileInfo = () => {
         <>
           <button
             onClick={() => {
-              signIn();
+              signIn(undefined, {callbackUrl: "/dashboard"});
             }}
           >
             Logg inn
