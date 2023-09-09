@@ -10,17 +10,15 @@ import { options } from '../../api/auth/[...nextauth]/options'
 import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react";
 
 
-interface UserProps {
-  details: {
-    navn: string;
-    rom: string;
-    tema: string;
-    urls: string;
-  };
+interface DetailsItem {
+  navn: string;
+  rom: string;
+  tema: string;
 }
 
-
-
+interface DetailsData {
+  details: DetailsItem[];
+}
 
 async function getFromDB (id: string) {
   let res = await fetch(`/api/conferance/get/?id=${id}`, {
@@ -37,18 +35,18 @@ async function getFromDB (id: string) {
 export default function SettingsAccountPage(){
 
   const { data: session } = useSession();
-  const [details, setDetails] = useState<Record<string, string> | null>(null);
+  const [details, setDetails] = useState<DetailsData | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      if (session) {
+      if (session && session.user && session.user.email) {
         const data = await getFromDB(session.user.email);
         setDetails(data);
       }
     }
 
     fetchData();
-  }, [session?.user?.email]);
+  }, [session]);
 
   const ColComponent = () => {
     console.log("details ", details)
@@ -57,17 +55,14 @@ export default function SettingsAccountPage(){
       <>
           <table>
             <th>Navn</th><th>Rom</th><th>Tema</th><th>Urls</th>
-            {details.details.map((details: { navn: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; rom: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | null | undefined; tema: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }, index: any) => {
-              return (
-              <tr>
-                <td key={index}>{details.navn}</td>
-                <td key={index}>{details.rom}</td>
-                <td key={index}>{details.tema}</td>
-                <td key={index}>{details.rom}</td>
+            {details.details.map((detail, index) => (
+              <tr key={index}>
+                <td>{detail.navn}</td>
+                <td>{detail.rom}</td>
+                <td>{detail.tema}</td>
+                <td>{detail.rom}</td>
               </tr>
-              )
-            })}
-            
+            ))}
           </table>
           </>
   
