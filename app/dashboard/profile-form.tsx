@@ -1,4 +1,5 @@
 'use client'
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import * as z from "zod"
@@ -17,6 +18,10 @@ import {
 import { Input } from "@/registry/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/registry/ui/use-toast"
+import { Session } from "next-auth";
+import { useSession} from "next-auth/react";
+
+
 
 const profileFormSchema = z.object({
   navn: z
@@ -58,6 +63,7 @@ const defaultValues: Partial<ProfileFormValues> = {
 }
 
 export function ProfileForm() {
+  const { data: session } = useSession();
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues,
@@ -69,15 +75,26 @@ export function ProfileForm() {
     control: form.control,
   })
 
-  function onSubmit(data: ProfileFormValues) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
+  async function onSubmit(data: ProfileFormValues) {
+    
+    const username = await session?.user?.email as string;
+    const payload = { [username]: [data as ProfileFormValues]}
+    updateDB(payload).then( (value: any) => {
+      console.log(value);
     })
+  }
+
+  async function updateDB (data: any, ) {
+    let res = await fetch("/api/conferance/update", {
+      method: "POST",
+      body: JSON.stringify({data}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const { result } = await res.json();
+    return result;
   }
 
   return (

@@ -11,13 +11,33 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import { Session } from "next-auth";
+
+
+
+async function updateDB (data: Session) {
+  let res = await fetch("/api/user", {
+    method: "POST",
+    body: JSON.stringify({data}),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const { result } = await res.json();
+  return result;
+}
+
 
 export const ProfileInfo = () => {
-
     const { data: session } = useSession();
+    
     const profileimage = session?.user?.image as string;
-
+    
     if (session) {
+        
+        updateDB(session);
+
         return (
           <>
             <div className="w-1/4 text-center font-bold">
