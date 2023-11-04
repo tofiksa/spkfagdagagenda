@@ -26,21 +26,18 @@ import {
   
   export function DemoGithub() {
     return (
+      <>
       <Card>
-        <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+        {/* <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
           <div className="space-y-1">
-            <CardTitle>shadcn/ui</CardTitle>
-            <CardDescription>
-              Beautifully designed components built with Radix UI and Tailwind
-              CSS.
-            </CardDescription>
+            <CardTitle></CardTitle>
           </div>
           <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
             <Button variant="secondary" className="px-3 shadow-none">
               <StarIcon className="mr-2 h-4 w-4" />
               Star
             </Button>
-            <Separator orientation="vertical" className="h-[20px]" />
+            <Separator/>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="secondary" className="px-2 shadow-none">
@@ -68,8 +65,8 @@ import {
             </DropdownMenu>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="flex space-x-4 text-sm text-muted-foreground">
+ */}      <CardContent />
+          {/* <div className="flex space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center">
               <CircleIcon className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
               TypeScript
@@ -79,8 +76,8 @@ import {
               20k
             </div>
             <div>Updated April 2023</div>
-          </div>
-        </CardContent>
+          </div> */}
       </Card>
+      </>
     )
   }
