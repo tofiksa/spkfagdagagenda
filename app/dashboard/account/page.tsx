@@ -3,11 +3,13 @@
 import { Separator } from "@/components/ui/seperator"
 import { AccountForm } from "./account-form"
 import { useSession} from "next-auth/react";
+import { DemoGithub } from "./components/github-card"
 
 import { kv } from '@vercel/kv';
 import { getServerSession } from 'next-auth/next'
 import { options } from '../../api/auth/[...nextauth]/options'
 import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 
 interface DetailsItem {
@@ -30,6 +32,21 @@ async function getFromDB (id: string) {
 
   const { result } = await res.json();
   return result;
+}
+
+function DemoContainer({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center [&>div]:w-full",
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
 export default function SettingsAccountPage(){
@@ -87,6 +104,11 @@ export default function SettingsAccountPage(){
           Her vises foredragene etter opprettelse
         </p>
         <ColComponent />
+        <div className="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
+          <DemoContainer>
+            <DemoGithub />
+          </DemoContainer>
+        </div>
       </div>
       <Separator />
       <AccountForm />
