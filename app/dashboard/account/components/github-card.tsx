@@ -1,7 +1,5 @@
 import {
-    ChevronDownIcon,
     CircleIcon,
-    PlusIcon,
     StarIcon,
   } from "@radix-ui/react-icons"
   
@@ -13,60 +11,46 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-  import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
   import { Separator } from "@/components/ui/separator"
+
+  interface DetailsItem {
+    navn: string;
+    rom: string;
+    tema: string;
+  }
   
-  export function DemoGithub() {
+  interface DetailsData {
+    details: DetailsItem[];
+  }
+  
+  export function DemoGithub({ details }: DetailsData) {
+    
+    const data: DetailsData = {
+      details: details.details.details
+    };
+    console.log(data);
     return (
       <>
-      <Card />
-        {/* <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+      {data.details.map((detail, index) => (
+
+        <Card key={index}>
+        <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
           <div className="space-y-1">
-            <CardTitle></CardTitle>
+            <CardTitle>{detail.navn}</CardTitle>
+            <CardDescription>
+              {detail.tema}
+            </CardDescription>
           </div>
           <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
             <Button variant="secondary" className="px-3 shadow-none">
               <StarIcon className="mr-2 h-4 w-4" />
               Star
             </Button>
-            <Separator/>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="secondary" className="px-2 shadow-none">
-                  <ChevronDownIcon className="h-4 w-4 text-secondary-foreground" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="end"
-                alignOffset={-5}
-                className="w-[200px]"
-                forceMount
-              >
-                <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem checked>
-                  Future Ideas
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>My Stack</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Inspiration</DropdownMenuCheckboxItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <PlusIcon className="mr-2 h-4 w-4" /> Create List
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Separator orientation="vertical" className="h-[20px]" />
           </div>
         </CardHeader>
- */}      <CardContent />
-          {/* <div className="flex space-x-4 text-sm text-muted-foreground">
+        <CardContent>
+          <div className="flex space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center">
               <CircleIcon className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
               TypeScript
@@ -76,7 +60,11 @@ import {
               20k
             </div>
             <div>Updated April 2023</div>
-          </div> */}
+          </div>
+        </CardContent>
+        </Card>
+            
+      ))}
       
       </>
     )

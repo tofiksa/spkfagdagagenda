@@ -8,9 +8,9 @@ export async function GET(request: Request) {
   let userid = "" as string | null;
   userid = id;
   
-  console.log("Get ", userid);
+  //console.log("Get ", userid);
   const kvdata = await kv.hgetall(userid!);
-  console.log(kvdata)
+  //console.log(kvdata)
   
  
   return NextResponse.json({ result: kvdata })
