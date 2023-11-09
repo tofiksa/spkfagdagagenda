@@ -26,7 +26,7 @@ import {
   export function DemoGithub({ details }: DetailsData) {
     
     const data: DetailsData = {
-      details: details.details.details
+      details: details
     };
     console.log(data);
     return (

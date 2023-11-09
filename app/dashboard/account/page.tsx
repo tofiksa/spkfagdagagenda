@@ -12,6 +12,11 @@ interface DetailsItem {
   navn: string;
   rom: string;
   tema: string;
+  urls: Url[];
+}
+
+interface Url {
+  value: string;
 }
 
 interface DetailsData {
@@ -28,11 +33,9 @@ async function getFromDB (id: string) {
 
   const { result } = await res.json();
 
-  const data: DetailsData = {
-    details: result
-  };
-  
-  return data;
+  const details: DetailsItem[] = result.details;
+
+  return details;
 }
 
 function DemoContainer({
@@ -53,12 +56,12 @@ function DemoContainer({
 export default function SettingsAccountPage(){
 
   const { data: session } = useSession();
-  const [details, setDetails] = useState<DetailsData | null>(null);
+  const [details, setDetails] = useState<DetailsItem[] | null>(null);
   
   useEffect(() => {
     async function fetchData() {
       if (session && session.user && session.user.email) {
-        const data: DetailsData = await getFromDB(session.user.email);
+        const data: DetailsItem[] = await getFromDB(session.user.email);
         setDetails(data);
       }
     }
