@@ -28,7 +28,6 @@ import {
     const data: DetailsData = {
       details: details
     };
-    console.log(data);
     return (
       <>
       {data.details.map((detail, index) => (

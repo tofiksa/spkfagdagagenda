@@ -17,10 +17,10 @@ import {
 } from "@/registry/ui/form"
 import { Input } from "@/registry/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/registry/ui/use-toast"
+import { useToast } from "@/registry/ui/use-toast"
+import { ToastAction } from "@/components/ui/toast"
 import { Session } from "next-auth";
 import { useSession} from "next-auth/react";
-
 
 
 const profileFormSchema = z.object({
@@ -54,6 +54,7 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<ProfileFormValues> = {
+  navn: "",
   tema: "",
   rom: "",
   urls: [
@@ -64,6 +65,7 @@ const defaultValues: Partial<ProfileFormValues> = {
 
 export function ProfileForm() {
   const { data: session } = useSession();
+  const { toast } = useToast()
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues,
@@ -80,6 +82,7 @@ export function ProfileForm() {
     const username = await session?.user?.email as string;
     const payload = { [username]: [data as ProfileFormValues]}
     updateDB(payload).then( (value: any) => {
+      
       console.log(value);
     })
   }
@@ -184,7 +187,13 @@ export function ProfileForm() {
             Legg til
           </Button>
         </div>
-        <Button type="submit">Oppdater</Button>
+        <Button onClick={() => toast({
+        title: "Scheduled: Catch up ",
+        description: "Friday, February 10, 2023 at 5:57 PM",
+        action: (
+          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+        ),
+      })} type="submit">Oppdater</Button>
       </form>
     </Form>
   )

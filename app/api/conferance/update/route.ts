@@ -7,6 +7,10 @@ export async function POST(req: Request) {
   let userid = "" as string;
 
   for (const email in data) {
+    /* kv: {
+      [field: string]: TData;
+    }
+     */
     const details = data[email];
     userid = email;
     await kv.hset(email, {details});

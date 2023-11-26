@@ -11,8 +11,6 @@ export default async function IndexPage() {
   //const name = user?.data.user.name;
   //const email = user?.data.user.email;
 
-  console.log(user);
-
   return ( <div>
     
   </div>);
