@@ -36,3 +36,9 @@ yarn-error.log*
 .env
 .vercel
 docker-deploy
+.vscode
+.firebaserc
+firebase.json
+firestore*
+storage.rules
+database.rules.json
