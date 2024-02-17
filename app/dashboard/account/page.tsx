@@ -6,23 +6,9 @@ import { DemoGithub } from "./components/github-card"
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-
-
-interface DetailsItem {
-  navn: string;
-  rom: string;
-  tema: string;
-  urls: Url[];
-}
-
-interface Url {
-  value: string;
-}
-
-interface DetailsData {
-  details: DetailsItem[];
-}
-
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../../lib/firebase"
+import { IDetailsItem} from "../../../types/taler"
 
 
 function DemoContainer({
@@ -43,14 +29,24 @@ function DemoContainer({
 export default function SettingsAccountPage(){
 
   const { data: session } = useSession();
-  const [details, setDetails] = useState<DetailsItem[] | null>(null);
+  const [details, setDetails] = useState<IDetailsItem[] | null>(null);
+  const talerCol = collection(db, "taler")
   
   useEffect(() => {
-    
-  }, [session]);
+    onSnapshot(talerCol, snapshot => {
+      const data: IDetailsItem[] = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        navn: doc.data().data.navn,
+        rom: doc.data().data.rom,
+        tema: doc.data().data.tema,
+        urls: doc.data().data.urls
+      }))
+      setDetails(data)
+    })
+  }, [talerCol]);
 
   const ColComponent = () => {
-    
+
     return details !== null ? (
       <>  
           <DemoGithub details={details} />
