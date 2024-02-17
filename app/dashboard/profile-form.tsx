@@ -21,6 +21,8 @@ import { useToast } from "@/registry/ui/use-toast"
 import { ToastAction } from "@/components/ui/toast"
 import { Session } from "next-auth";
 import { useSession} from "next-auth/react";
+import { db } from "../../lib/firebase";
+import { collection, addDoc } from "firebase/firestore"
 
 
 const profileFormSchema = z.object({
@@ -54,12 +56,12 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<ProfileFormValues> = {
-  navn: "",
-  tema: "",
-  rom: "",
+  navn: '',
+  tema: '',
+  rom: '',
   urls: [
-    { value: "" },
-    { value: "" },
+    { value: '' },
+    { value: '' },
   ],
 }
 
@@ -77,27 +79,26 @@ export function ProfileForm() {
     control: form.control,
   })
 
-  async function onSubmit(data: ProfileFormValues) {
+  function onSubmit(data: ProfileFormValues) {
     
-    const username = await session?.user?.email as string;
-    const payload = { [username]: [data as ProfileFormValues]}
-    updateDB(payload).then( (value: any) => {
-      
+    
+    //const username = await session?.user?.email as string;
+    //const payload = { [username]: [data as ProfileFormValues]}
+    /* updateDB(payload).then( (value: any) => {
+      console.log(value);
+    }) */
+    
+    transferToFirebase(data).then( (value: any) => {
       console.log(value);
     })
   }
 
-  async function updateDB (data: any, ) {
-    let res = await fetch("/api/conferance/update", {
-      method: "POST",
-      body: JSON.stringify({data}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  async function transferToFirebase (data: ProfileFormValues) {
+    console.log(data);
+    const docRef = await addDoc(collection(db, 'taler'), {
+        data
     });
-  
-    const { result } = await res.json();
-    return result;
+    console.log('firebase: ',docRef);
   }
 
   return (

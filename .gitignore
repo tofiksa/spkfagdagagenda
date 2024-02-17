@@ -42,3 +42,4 @@ firebase.json
 firestore*
 storage.rules
 database.rules.json
+ui-debug.log
