@@ -17,7 +17,7 @@ import {
 } from "@/registry/ui/form"
 import { Input } from "@/registry/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/registry/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import { ToastAction } from "@/components/ui/toast"
 import { Session } from "next-auth";
 import { useSession} from "next-auth/react";
@@ -87,6 +87,20 @@ export function ProfileForm() {
     /* updateDB(payload).then( (value: any) => {
       console.log(value);
     }) */
+
+    //{JSON.stringify(data, null, 2)}
+    toast({
+      title: "Følgende ble registrert:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">
+            Navn: {data.navn}
+            Tema: {data.tema}
+            Rom: {data.rom}
+          </code>
+        </pre>
+      ),
+    })
     
     transferToFirebase(data).then( (value: any) => {
       console.log(value);
@@ -94,11 +108,9 @@ export function ProfileForm() {
   }
 
   async function transferToFirebase (data: ProfileFormValues) {
-    console.log(data);
-    const docRef = await addDoc(collection(db, 'taler'), {
+    await addDoc(collection(db, 'taler'), {
         data
     });
-    console.log('firebase: ',docRef);
   }
 
   return (
@@ -188,13 +200,7 @@ export function ProfileForm() {
             Legg til
           </Button>
         </div>
-        <Button onClick={() => toast({
-        title: "Scheduled: Catch up ",
-        description: "Friday, February 10, 2023 at 5:57 PM",
-        action: (
-          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-        ),
-      })} type="submit">Oppdater</Button>
+        <Button type="submit">Oppdater</Button>
       </form>
     </Form>
   )
