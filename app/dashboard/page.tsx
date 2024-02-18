@@ -1,5 +1,8 @@
+'use client'
+
 import { Separator } from "@/components/ui/seperator"
 import { ProfileForm } from "./profile-form"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function SettingsProfilePage() {
   return (
@@ -12,6 +15,7 @@ export default function SettingsProfilePage() {
       </div>
       <Separator />
       <ProfileForm />
+      <Toaster />
     </div>
   )
 }

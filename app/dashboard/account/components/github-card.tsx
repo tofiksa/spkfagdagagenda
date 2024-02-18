@@ -23,10 +23,12 @@
             <CardTitle>{detail.navn}</CardTitle>
             <CardDescription>
               {detail.tema}
-              {detail.urls.map((url, index) => (
-                <ol>{url.value}</ol>
-              ))}
             </CardDescription>
+            <ul>
+              {detail.urls.map((url, index) => (
+                <li key={index}>{url.value}</li>
+              ))}
+              </ul>
           </div>
         </CardHeader>
         </Card>
