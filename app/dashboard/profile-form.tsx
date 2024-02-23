@@ -42,7 +42,7 @@ const profileFormSchema = z.object({
     .max(30, {
       message: "romnavn kan ikke være større enn 30 characters.",
     }),
-  tema: z.string().max(160).min(4),
+  tema: z.string().max(460).min(4),
   urls: z
     .array(
       z.object({
