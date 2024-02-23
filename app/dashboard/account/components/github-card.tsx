@@ -15,7 +15,8 @@
     };
     
     return (
-      <>
+    
+      <div className=" flex-auto">
       {data.details.map((detail, index) => (
         <Card key={index}>
         <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
@@ -33,6 +34,7 @@
         </CardHeader>
         </Card>
       ))}
-      </>
+      </div>
+    
     )
   }
