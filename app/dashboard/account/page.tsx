@@ -18,7 +18,7 @@ function DemoContainer({
   return (
     <div
       className={cn(
-        "flex items-center justify-center [&>div]:w-full",
+        "justify-left grid items-center [&>div]:w-full",
         className
       )}
       {...props}
@@ -57,7 +57,7 @@ export default function SettingsAccountPage(){
   }
 
   return (
-    <div className="space-y-6">
+    <div>
       <div>
         <h3 className="text-lg font-medium">Foredragene</h3>
         <p className="text-sm text-muted-foreground">

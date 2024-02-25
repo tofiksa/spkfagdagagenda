@@ -16,11 +16,11 @@
     
     return (
     
-      <div className=" flex-auto">
+      <div className="grid md:grid-cols-3">
       {data.details.map((detail, index) => (
         <Card key={index}>
         <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
-          <div className="space-y-1">
+          <div>
             <CardTitle>{detail.navn}</CardTitle>
             <CardDescription>
               {detail.tema}
